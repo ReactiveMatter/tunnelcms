@@ -1,0 +1,60 @@
+body
+{
+	font-family: 'Open sans', Arial;
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+h1
+{
+	font-size: 1.5em;
+	margin-bottom: 1.5em;
+}
+
+h1.title
+{
+	text-align: center;
+}
+
+h2
+{
+	font-size: 1.3em;
+	margin-bottom: 1em;
+}
+
+table
+{
+	border-collapse: collapse;
+}
+
+th
+{
+	text-align: left;
+}
+
+th, td {
+  padding: 0.25em 0.5em;
+  border: 1px solid #ddd;
+}
+
+td:first-child 
+{
+	text-wrap: nowrap;
+}
+
+.container 
+{
+	padding: 2em 1em;
+	max-width: 800px;
+	margin: auto auto;
+}
+
+code 
+{
+	background: #eee;
+}
+
+td:first-child code 
+{
+	background: inherit;
+}
