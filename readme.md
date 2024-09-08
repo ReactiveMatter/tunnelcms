@@ -40,9 +40,9 @@ A line in file which contains only hash tags is removed while rendering.
 
 ## Content
 
-Content can be written in Markdown. As Tunnel CMS is based on [Parsedown](https://parsedown.org/), formatting supperted by Parsedown can be used.
+Content can be written in Markdown. As Tunnel CMS is based on [Parsedown](https://parsedown.org/), all formatting supported by Parsedown can be used.
 
-For making markdown links relative to the site directory, prepend `$` for the relative link. E.g. `[blog]($/blog)`. The site directory is automatically prepended before the link.
+For using internal markdown links (relative to site directory), prepend `$` to the link. E.g. `[blog]($/blog)`. The site directory is automatically prepended before the link.
 
 ## 💾 Cache
 
