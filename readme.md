@@ -38,7 +38,7 @@ Files can be assigned tags using the front matter property `tags`. In addition t
 
 A line in file which contains only hash tags is removed while rendering.
 
-## Content
+## 📄 Content
 
 Content can be written in Markdown. As Tunnel CMS is based on [Parsedown](https://parsedown.org/), all formatting supported by Parsedown can be used.
 
