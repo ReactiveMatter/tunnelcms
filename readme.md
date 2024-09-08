@@ -8,7 +8,7 @@ Download the `tunnel` folder along with the `.htaccess` file from the [Github di
 
 Place them in the root of your website, and run `composer install` in tunnel directory.
 
-Or download the (latest release)(https://github.com/ReactiveMatter/tunnelcms/releases/tag/public) and place them in the root of your website.
+If you don't want to use composer, download the [latest release](https://github.com/ReactiveMatter/tunnelcms/releases/tag/public) and place them in the root of your website.
 
 Tunnel CMS will render your markdown files dynamically, so that you can focus on writing.
 
