@@ -56,9 +56,9 @@ Config variables are stored in `tunnel/config.php`. They are site wide variables
 | --- | --- |
 | `$site['title']` | Site title |
 | `$site['ext']` | The file extensions which will be parsed |
-| `$site['default-layout']` | The default layout for parsing. If set to `page`, `tunnel/layout/page.php` will be used.|
+| `$site['default']['layout']` | The default layout for parsing. If set to `page`, `tunnel/layout/page.php` will be used.|
+| `$site['default']['title']` | Default title. Will be used if not title is available in the file. |
 | `$site['build-drafts']` | Whether to build files tagged as `draft` |
-| `$site['default-title']` | Default title. Will be used if not title is available in the file. |
 | `$site['date-format']` | The PHP date display format. To be used in layouts.|
 
 Custom variable can be defined in config file, which can be used in the layout files.
