@@ -4,7 +4,11 @@ Tunnel CMS is the simplest markdown CMS. It parses markdown files and outputs ht
 
 ## 🛠️ Installation
 
-Download the `tunnel` folder along with the `.htaccess` file from the [Github directory](https://github.com/ReactiveMatter/tunnelcms) `https://github.com/ReactiveMatter/tunnelcms`. Place them in the root of your website, and that's it!
+Download the `tunnel` folder along with the `.htaccess` file from the [Github directory](https://github.com/ReactiveMatter/tunnelcms) `https://github.com/ReactiveMatter/tunnelcms`.
+
+Place them in the root of your website, and run `composer install` in tunnel directory.
+
+Or download the (latest release)(https://github.com/ReactiveMatter/tunnelcms/releases/tag/public) and place them in the root of your website.
 
 Tunnel CMS will render your markdown files dynamically, so that you can focus on writing.
 
