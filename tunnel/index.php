@@ -1,6 +1,5 @@
 <?php
 require 'vendor/autoload.php'; // Include the Composer autoloader for Parsedown
-require 'ParsedownExtra.php';
 require 'config.php';
 
 use Symfony\Component\Yaml\Yaml;
