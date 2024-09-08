@@ -78,9 +78,9 @@ function format_slug($slug)
 function add_base_to_links($matches) {
     global $site;
     $url = $matches[2]; // Extract the URL part
-    if(str_starts_with($url, '/'))
+    if(str_starts_with($url, '$/'))
     {
-        $url = rtrim($site['base'], "/")."/".ltrim($url,'/');
+        $url = rtrim($site['base'], "/")."/".ltrim($url,'$/');
     }
     return '['.$matches[1] .']'. '(' . $url . ')'; // Return modified link
 }
