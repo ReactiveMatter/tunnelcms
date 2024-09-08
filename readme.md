@@ -38,6 +38,12 @@ Files can be assigned tags using the front matter property `tags`. In addition t
 
 A line in file which contains only hash tags is removed while rendering.
 
+## Content
+
+Content can be written in Markdown. As Tunnel CMS is based on [Parsedown](https://parsedown.org/), formatting supperted by Parsedown can be used.
+
+For making markdown links relative to the site directory, prepend `$` for the relative link. E.g. `[blog]($/blog)`. The site directory is automatically prepended before the link.
+
 ## 💾 Cache
 
 Tunnel CMS stores the rendered HTML files in `tunnel/site` folder with the directory structure same as the root folder. Whenever a file is requested for the first time, a build process in initiated. In the build process, front matter is processed, the HTML content is generated from markdown and saved as HTML files in `tunnel/site`. The file modified time (mtime) and the build time (btime) is entered into an SQLite database (`tunnel/build.db`). If the file modified time does not change, the files from `tunnel/site` are served on request. As and when the file modified time changes, the build process is again initiated.
