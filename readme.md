@@ -71,7 +71,7 @@ Custom variable can be defined in config file, which can be used in the layout f
 
 ## 📜 Feed
 
-If the a feed generating file exists at `tunnel/layout/feed.php`, it will be called during the `buildsite` process. The code for generating feeds can be included in this file.
+If a feed generating file exists at `tunnel/layout/feed.php`, it will be called during the `buildsite` process. The code for generating feeds can be included in this file.
 
 ## License
 
