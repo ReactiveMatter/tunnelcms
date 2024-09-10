@@ -69,9 +69,8 @@ function join_path(...$paths) {
 
 function format_slug($slug)
 {
-    $slug = trim($slug, DS);
-    $slug = trim($slug, "/");
     $slug = str_replace(DS, "/",$slug);
+    $slug = trim($slug, "/")."/";
     return $slug;
 }
 
@@ -153,6 +152,7 @@ function parse($file) {
         $content = preg_replace('/^(?:\s*#\w+\s*?)*$/m', '', $content);
         // Use regular expression to find and modify Markdown links
         $pattern = '/\[(.*?)\]\((.*?)\)/';
+        $content = preg_replace_callback('/\[(.*?)\]\((.*?)\)/', fn($matches) => '[' . $matches[1] . '](' . rtrim($matches[2], '/') . '/)', $content);
         $content = preg_replace_callback($pattern, 'add_base_to_links', $content);
         $content = $parsedown->text($content);
         $page['content']= trim($content, " \n\r\t");
@@ -173,8 +173,10 @@ function parse($file) {
         {
             $slug = str_replace(".".$ext, "", $slug);
         }
+
         $page['slug'] = format_slug($slug);
-      
+        /*Adding a trailing slash to be consistent in URL scheme */
+        
        
         $page['file_path'] = $file;
 
