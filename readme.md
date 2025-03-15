@@ -55,6 +55,8 @@ Config variable are stored in `config.php`. They are site wide variables used fo
 | `$site['ext']` | The file extensions which will be parsed |
 | `$site['default_layout']` | The default layout for parsing. If set to `page`, `template/page.php` will be used.|
 | `$site['date_format']` | The PHP date display format. To be used in layouts.|
+| `$site['cache']` | Whether to enable caching.|
+| `$site['plugins']` | The list of enabled plugins (filenames are to be added to this array.|
 
 Custom variable can be defined in config file, which can be used in the template files.
 
