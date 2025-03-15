@@ -66,7 +66,7 @@ The detailed process and control flow is provided in [workings](workings).
 
 ## Plugins
 
-Starting from version 2.0.0, Tunnel CMS can be extended or improved by plugins.
+Starting from version 2, Tunnel CMS can be extended or improved by plugins.
 
 Plugins are php files in `core/plugins` directory. To enable a plugin, the name of the plugin file must be added to `$site['plugins']` array.
 
