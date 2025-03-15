@@ -8,14 +8,12 @@ function get_file_path_for_slug($slug) {
     global $site; // Access the global site configuration
     foreach ($site['ext'] as $ext) {
         $file_path = join_path($site['dir'],'content', str_replace('/', DS, $slug) . '.' . $ext);
-
         if(file_exists($file_path)) {
             return $file_path; // Return the first matching file
         }
 
 
         $file_path = join_path($site['dir'],'content', str_replace('/', DS, $slug), 'index.'.$ext);
-
         if(file_exists($file_path)) 
         {   
             return $file_path; // Return the first matching file
@@ -27,9 +25,12 @@ function get_file_path_for_slug($slug) {
 
 
 function join_path(...$paths) {
-    return implode(DIRECTORY_SEPARATOR, array_map(function($path) {
-        return trim($path, DIRECTORY_SEPARATOR);
+    $jp =  implode(DIRECTORY_SEPARATOR, array_map(function($path) {
+        $path = preg_replace('/[\\\\\/]+/',DIRECTORY_SEPARATOR, $path);
+        return $path;
     }, $paths));
+
+    return preg_replace('/[\\\\\/]+/',DIRECTORY_SEPARATOR, $jp);
 }
 
 function format_slug($slug)
@@ -37,7 +38,8 @@ function format_slug($slug)
     $slug = str_replace('index.php',"",$slug);
     $slug = preg_replace('/\/+/', '/', $slug); // Replace multiple slashes with a single one
     $slug = str_replace(DS, "/",$slug);
-    $slug = trim($slug, "/");
+    # Slug to have leading slash but not trailing slash
+    $slug = "/".trim($slug, "/");
     return $slug ?: '/'; // Ensure slug is never empty
 }
 
@@ -113,8 +115,8 @@ function dir_hash($dir_path)
 function rel_url($path) {
     global $site;
 
-    $url = '/'.trim($site['base'], '/') . '/' . ltrim($path, '/');
-
+    $url = $site['base']."/".$path;
+    $url = preg_replace('/\/+/', '/', $url);
     return $url;
 
 }
