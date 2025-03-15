@@ -8,6 +8,9 @@ $site['ext'] = ['md', 'txt'];
 # Default layout for the posts. It is to be ensure that a php file with this file exists in template folder.
 $site['default_layout'] = 'default';
 
+# If cache should be enabled.
+$site['cache'] = true;
+
 # Default format for display of date
 $site['date_format'] = 'd F, Y';
 
