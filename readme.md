@@ -83,6 +83,12 @@ Plugins file are included autmatically at the start of the process, by `plugin_m
  add_hook('start','remove_old_cache');
  ```
 
+## Content
+
+All markdown content is to be put in `content` folder with desired directory structure. The directory structre and file names are used as url.
+
+The content can be managed by FTP, SFTP, SSH or by PHP based filemanagers (like [tinyfilemanager](https://tinyfilemanager.github.io/).)
+
 ## License
 
 This project is licensed under the MIT License.
