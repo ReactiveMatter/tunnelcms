@@ -1,15 +1,16 @@
-# Tunnel CMS
-v2.0.0
+---
+title: About Tunnel CMS
+---
 
 Tunnel CMS is the simplest markdown CMS. It parses markdown files and outputs html in real time whenever necessary. However, not every request requires parsing, as Tunnel CMS builds the HTML files and store in cache. Until, the underlying content of the markdown files is changes, the cached HTML is served.
 
-## 🛠️ Installation
+# 🛠️ Installation
 
 Download the `tunnel` folder along with the `.htaccess` file from the [Github directory](https://github.com/ReactiveMatter/tunnelcms) `https://github.com/ReactiveMatter/tunnelcms`. Place them in the root of your website, and that's it!
 
 Tunnel CMS will render your markdown files dynamically, so that you can focus on writing.
 
-## 📝 YAML frontmatter
+# 📝 YAML frontmatter
 
 Tunnel CMS parses YAML front matter from the markdown files and serializes them in the `$page` variable. This can be used by the layout to display content.
 
@@ -22,7 +23,7 @@ Some useful page properties:
 | `tags` | Tags for the file |
 
 
-## 🖥️ Template and layout
+# 🖥️ Template and layout
 
 The layout files from `template` folder are used to render html content. The layout can be set in YAML front matter in `layout` property. `default.php` is used when no layout is set.
 
@@ -30,11 +31,11 @@ The `title` property can be set for the page title. If not set, the first headin
 
 If a layout requires the list of all parsed files, the function `get_all_pages()` can be called. It returns an array of pages. Each element will have properties set for that page.
 
-## 🏷️ Tags
+# 🏷️ Tags
 
 Files can be assigned tags using the front matter property `tags`. In addition to this, Tunnel CMS assigns tags if hash tags are given in the file (e.g. `#tag1`).
 
-## 💾 Cache
+# 💾 Cache
 
 Tunnel CMS stores the rendered HTML files and associated metadata in `cache` folder. Whenever a file is requested for the first time, a build processes in initiated. In the build process, front matter is processed, the HTML content is generated and saved as HTML files in `cache`. 
 
@@ -42,7 +43,7 @@ The file `content` and `template` directory hashes, and file _mtime_ are saved i
 
 As and when the file modified time changes, the build process is again initiated.
 
-## ⚙️ Config
+# ⚙️ Config
 
 Config variable are stored in `config.php`. They are site wide variables used for the build process, and can also be used by the templates.
 
@@ -55,13 +56,13 @@ Config variable are stored in `config.php`. They are site wide variables used fo
 
 Custom variable can be defined in config file, which can be used in the template files.
 
-## Links
+# Links
 
 By default markdown links are relative to http root (`/about`). However, to make it relative to Tunnel CMS directory use `$/about`. 
 
-## Workings
+# Workings
 
-The detailed process and control flow is provided in [workings](workings).
+The detailed process and control flow is provided in [workings]($/workings).
 
 # License
 

@@ -1,5 +1,5 @@
-## make sure nobody gets the htaccess, README, COPYING or VERSION files
-<Files ~ "^([\._]ht|README$|VERSION$|COPYING$)|(\.db$)|(\.yml$)">
+# Make sure nobody gets the htaccess, README, COPYING or VERSION files
+<Files ~ "^([\._]ht|README$|VERSION$|COPYING$)">
     <IfModule mod_authz_core.c>
         Require all denied
     </IfModule>
@@ -12,8 +12,12 @@
 # Enable URL rewriting
 RewriteEngine On
 
+RewriteRule ^(cache|core|content|template)/ index.php/404 [L]
+# RewriteRule ^template/.*\.php$ index.php/404 [L]
+
+
 # Check if the requested file or directory exists
 RewriteCond %{REQUEST_FILENAME} !-f
 
 # If not, redirect to tunnel.php
-RewriteRule ^(.*)$ tunnel/index.php [L,QSA]
+RewriteRule ^(.*)$ index.php/ [L,QSA]

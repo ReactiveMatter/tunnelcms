@@ -1,0 +1,28 @@
+The process is as follows
+
+- Init.php: It boostraps all required files.
+	- Loads $config.php which initializes $site (site wide config)
+	- Initializes $request parameter
+	- Run `start` hook
+	- If cache exists and valid, serve cache.
+		- Check chache
+		- Check content and template dir hash. 
+		- If page type is dynamic (i.e. depend on other pages), cache is invalid
+		- Else check mtime.
+		- If mtime of requested page has changed, cache invalid.
+		- Else serve cache. And update cache_meta if required.
+	- Process ends here, else continue
+	- Build process is initiated
+- Build.php:
+	- Scan the content directory
+	- Loads all plugins and registers hook
+	- Parses the requested file
+		- If list of all page is required
+			- Parses all files and initializes $pages variable
+		- YAML and Markdown content is processed and $page variable is initialized
+		- before_page_build hook is called
+		- Template page is called to create HTML output.
+		- The cache is saved
+		- after_page_build hook is called
+- end hook is called
+- The HTML output is served

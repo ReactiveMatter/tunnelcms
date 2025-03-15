@@ -1,0 +1,724 @@
+
+html {
+	position: relative;
+	min-height: 100%;
+	height: 100%;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+	font-size: 18px;
+	color:#222;
+	background-color: white;
+	font-family: sans-serif;
+}
+
+:root 
+{
+	scroll-behavior: auto !important;
+}
+
+
+a 
+{
+	text-decoration: none;
+}
+
+.row, .col
+{
+	margin-left: unset;
+	margin-right: unset;
+	padding-left: unset;
+	padding-right: unset;
+}
+
+.container
+{
+	max-width: 900px;
+	margin: auto auto;
+}
+.navbar, footer.footer
+{
+	background-color: white;
+	padding: unset;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.navbar .container
+{
+	justify-content: left;
+	padding: calc(15px - 0.75rem);
+}
+
+
+.navbar a, .navbar-nav a.nav-link
+{
+	padding: 0.5em 0.75rem;
+	display: inline-block;
+}
+
+
+.navbar-nav a.nav-link
+{
+	padding-left: 0rem;
+}
+
+.menu-toggle
+{
+  width: 20px;
+  opacity: 0.3;
+}
+
+.search-icon
+{
+	font-size: 1em; 
+	color:#6c757d;
+	padding: 0.25rem 0.75rem;
+	line-height: 1.5;
+}
+
+/* Formatting */
+
+.main ul, .main ol, .main p
+{
+	margin-top:1rem;
+	margin-bottom:1rem;
+}
+
+.main li 
+{
+	margin-top:0.25rem;
+	margin-bottom:0.25rem;
+}
+
+
+.main section {
+	padding: 150px 0;
+}
+
+.main img {
+
+	max-width: 100%;
+	height:auto;
+}
+
+
+.main pre, .main code {
+	background: #f8f8f8;
+	color: #333;
+}
+
+.main pre {
+	border-left: 2px solid #ccc;
+	padding: 10px;
+}
+
+.main code {
+	display: inline-block;
+	padding: 0 0.5rem;
+	line-height: 1.4rem;
+	border-radius: 3px;
+}
+
+.main table {
+	empty-cells: show;
+	border: 1px solid #cbcbcb;
+	width: 100%;
+	margin-bottom: 1rem;
+}
+
+.main thead {
+	background-color: #e0e0e0;
+	color: #000;
+	text-align: left;
+	vertical-align: bottom;
+}
+
+.main tr {
+	display: table-row;
+	vertical-align: inherit;
+	border-color: inherit;
+}
+
+.main h1.title,
+.main h2.title {
+	font-size: 2.3rem;
+}
+
+.main h1
+{
+	font-size: 1.7em;
+}
+
+.main h2
+{
+	font-size: 1.4em;
+}
+
+.main h3, .main h4, .main h5, .main h6
+{
+	font-size: 1em;
+	font-weight: bold;
+}
+
+.main h1, .main h2, .main h3, .main h4
+{
+	margin-top:1.5rem;
+}
+
+.main h1.title
+{
+  margin-top: 0rem;
+}
+
+.page .details
+{
+	margin-bottom: 1rem;
+}
+
+.page .details span.category::before {
+    content: "·";
+    padding-left: 5px;
+    padding-right: 5px;
+    font-weight: bold;
+}
+
+.page .details span.category a, .page .details span.category a:hover
+{
+	color: #777;
+}
+
+.main blockquote {
+        padding: 10px 20px;
+        margin: 0 0 20px 20px;
+        border-left: 5px solid #eee;
+        font-style: italic;
+}
+
+/* Navbar */
+img.nav-svg-icon {
+	width: 1rem;
+	height: 1rem;
+	padding-bottom: 2px;
+}
+
+.footer-text
+{
+	padding: 0.5rem 0rem;
+  	
+}
+
+footer .container
+{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.mini-logo {
+	height: 22px;
+	padding-bottom: 5px;
+}
+
+/* Plugins */
+.plugin {
+	margin-top: 3rem;
+}
+
+.plugin-label {
+	font-size: 1rem;
+	text-transform: uppercase;
+}
+
+.plugin ul {
+	list-style: none;
+	padding: 0 0 0 10px;
+}
+
+.search-bar input.search
+{
+	width: 100%;
+	border: 1px solid #dee2e6;
+	padding:0.45rem 0.9rem;
+	border-radius: 0.1rem;
+	/* font-size: 0.9em; */
+}
+
+.search-bar input.search:focus
+{
+	border: 1px solid #ddd;
+	outline: none;
+}
+
+.main
+{	padding-top:30px;
+	padding-bottom:30px;
+	flex-grow: 1;
+}
+
+
+.page-empty
+{
+	padding: 1rem;
+}
+
+.main table.page-results
+{
+	border: none;
+}
+.main table.page-results td:first-child, .main table.page-results th:first-child
+{
+	padding-left: 0px;
+}
+.main table.page-results td:last-child, .main table.page-results th:last-child
+{
+	padding-right: 0px;
+}
+.main table.page-results thead
+{
+	background-color: #fff0 !important;
+	color:#0009;
+}
+
+.page-results a.title:hover, .page-results a.category:hover, .page-results a.tag:hover
+{
+/*	text-decoration: none;*/
+}
+
+.page-results a.tag, .paginator-link, .muted-link
+{
+	color:#6c757d;
+/*	font-size: 0.9rem;
+	border: 1px solid #6c757d;
+	padding: 0.02em 0.1em;
+	border-radius: 0.2em;
+	margin-top: 0.2em;
+	margin-bottom: 0.2em;
+	display: inline-block;*/
+}
+
+.page-results a.tag:hover, .paginator-link:hover, .muted-link:hover
+{
+	color:#494c4f;
+	text-decoration:none;
+}
+
+.page .content
+{
+	text-align: justify;
+}
+
+.paginator-link
+{
+	padding: 0rem 0.75rem;
+}
+.head-date
+{
+	min-width: 140px;
+}
+.head-tags
+{
+	max-width: 200px;
+	min-width: 150px;
+}
+.head-title
+{
+	min-width: 250px;
+}
+
+
+.search-bar
+{
+	margin-bottom: 30px;
+}
+
+.navbar-toggler
+{
+	display: none;
+}
+.navbar-collapse
+{
+	flex-basis: unset;
+}
+.navbar-nav
+{
+	flex-direction: row;
+}
+.search-link
+{
+	display: none !important;
+}
+
+.collapse:not(.show)
+{
+	display: inline-block;
+}
+
+/* Fixing scroll as the theme has a sticky header */
+.main h1, .main h2, .main h3, .main h4, .main div.section
+{
+	scroll-margin-top: 50px;
+	overflow: initial;
+}
+
+/*Boxes custom*/
+.box
+{    
+	margin-top:1em;
+    margin-bottom:1em;
+    background: #fafafa;
+    border: 1px solid #a2a9b1;
+    padding:1em;
+    box-sizing:border-box;
+    border-radius: 3px;
+}
+.box div.center
+{ width:unset;}
+
+.box>*:first-child, .note>*:first-child
+{
+    margin-top:0;
+}
+.box>*:last-child, .note>*:last-child
+{
+    margin-bottom:0;
+}
+.box.red
+{
+    background: #ffebee;
+    border: 1px solid #d33;
+}
+
+.box.blue
+{
+    background: #e3f2fd;
+    border: 1px solid #386c96;
+}
+
+.box.green
+{
+    background: #d5fdf4;
+    border: 1px solid #14866d;
+}
+
+.box.yellow
+{
+    background: #fffde7;
+    border: 1px solid #fbc02d;
+}
+.box.pink
+{
+    background: #fce4ec;
+    border: 1px solid #ec407a;
+}
+.box.purple
+{
+    background: #f3e5f5;
+    border: 1px solid #ab47bc;
+}
+
+/* Side boxes */
+
+.box.side
+{
+    width:300px;
+    margin-top:0;
+    margin-bottom:0.5em;
+    float:right;
+}
+.box.side.big
+{
+    width:400px;
+}
+.box.side
+{
+    margin-left:0.5em;
+}
+.box.side.left
+{
+    margin-right:0.5em;
+}
+
+.box img
+{
+    max-width:100%;
+    height:auto;
+}
+.nb 
+{
+	border:none !important;
+}
+
+.note
+{	
+	box-sizing: border-box;
+	margin-top:1em;
+    margin-bottom:1em;
+	padding: 1rem;
+	box-shadow: 0px 0px 1px 0px;
+	border-radius: 3px;
+}
+
+.details
+{
+	font-size: 0.9em;
+	color: #777;
+}
+
+.flex
+{
+	display: flex;
+}
+
+.space-between
+{
+	justify-content: space-between;
+	gap: 10px;
+}
+
+.side
+{
+	float: right;
+	margin-left: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+
+.side.left
+{
+	float: left;
+	margin-left: 0rem;
+	margin-right: 1.5rem;
+}
+
+
+/*My modifications */
+.page-list.category .category-description, .page-list.category .td-category, .page-list.category .head-category
+{
+	display: none;
+}
+
+
+/* For mobile screens */
+@media screen and (max-width: 600px) 
+{
+  	body
+  	{ 
+  		font-size:16px;
+ 	
+ 	}
+	.navbar-toggler
+	{
+		display: inline-block;
+	}
+	.navbar-collapse
+	{
+		flex-basis: 100%;
+	}
+	.navbar-nav
+	{
+		flex-direction: column;
+	}
+	.search-link
+	{
+		display: inline-block !important;
+	}
+	.search-icon
+	{
+		display: none !important;
+	}
+
+	.head-title, .head-date
+	{
+		min-width: unset;
+	}
+
+	.collapse:not(.show)
+	{
+		display: none;
+	}
+
+	.main
+	{
+		padding-top: 30px;
+	}
+
+	.main h1.title,
+	.main h2.title {
+		font-size: 1.6rem;
+	}
+
+	.main h1
+	{
+		font-size: 1.4em;
+	}
+
+	.main h2
+	{
+		font-size: 1.2em;
+	}
+
+	.main h3
+	{
+		font-size: 1em;
+		font-weight: bold;
+	}
+	.main table.page-results thead
+	{
+		display: none;
+	}
+	.main table.page-results tr
+	{
+		display: flex;
+		border-bottom: 1px solid #ccc;
+		padding-top: 0.5rem;
+		padding-bottom: 0.5rem;
+		flex-wrap: wrap;
+	}
+	.main table.page-results tr:last-child
+	{
+
+		border: none;
+
+	}
+	.main table.page-results tr td
+	{
+		width: 50%;
+		border: none;
+		font-size: 0.8em;
+
+	}
+
+	.main table.page-results tr td.td-category, .page-list.category .td-date
+	{
+		padding-left: 0px;
+	}
+
+	.page-list.category .td-date
+	{
+		text-align: left !important;
+	}
+
+	.main table.page-results tr td:first-child
+	{
+		width: 100%;
+		font-size: 1em;
+	}	
+
+	.side
+	{ 
+		margin-left: 0rem;
+		margin: auto auto !important;
+		display: block;
+		float: none !important;
+
+	}
+	.side.center
+	{
+		text-align: center;
+	}
+	
+	.side.box
+	{
+		width: 100%;
+	}
+
+	.page .content
+	{
+		text-align: initial;
+	}
+
+}
+
+
+/* For prints */
+@media print
+{
+	.navbar, .footer, .no-print
+	{
+		display: none !important;
+	}
+
+	.main
+	{
+		padding-top: 0px !important;
+		padding-bottom: 0px !important;
+	}
+}
+
+.table td, .table th
+{
+	padding: 0.5rem;
+}
+
+/* For dark mode */
+
+body.dark, body.dark .navbar, body.dark footer.footer, body.dark textarea, body.dark input{
+	background: #282c34;
+	color: #bbc2cf;
+}
+
+body.dark .main a, .body.dark .main a:hover, body.dark .footer a, .body.dark .footer a:hover
+{
+	color: #59a9ff;
+}
+
+body.dark .page-results a.tag, body.dark .paginator-link, body.dark .muted-link, body.dark .main table.page-results thead
+{
+	color: #bbc2cfcc
+}
+
+body.dark .table td, body.dark .table th
+{
+	border-color: #bbc2cfcc;
+}
+
+body.dark .text-muted, body.dark .navbar, body.dark footer.footer
+{
+	color: #bbc2cfcc;
+}
+
+body.dark .page-results a.tag:hover, body.dark .paginator-link:hover, body.dark .muted-link:hover {
+    color: #cecece;
+    text-decoration: none;
+}
+
+body.dark .box
+{
+	color: #222;
+}
+
+body.dark .menu-toggle
+{
+	filter: invert();
+}
+
+body.dark #html-blog
+{
+	filter: invert(80%);
+}
+
+
+/* Dark theme changes over */
+
+.theme-toggle 
+{
+	cursor: pointer;
+}
+
+span.divider
+{
+	margin-left: 5px;
+	margin-right: 5px;
+	color:#ccc;
+}
+
+.main a.all-notes,.main a.all-notes:hover, .details a, .details a:hover
+{
+	color: #777;
+}
+
+.permalink{cursor:pointer;}
+.permalink:hover{text-decoration:underline;}
