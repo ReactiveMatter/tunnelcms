@@ -2,7 +2,7 @@
 
 use Symfony\Component\Yaml\Yaml;
 
-function build($request)
+function build($request, $metaonly=false)
 {
     global $site;
     $file = $request['filepath'];
@@ -70,14 +70,18 @@ function build($request)
     $page['tags'] = array_map('strtolower', $page['tags']);
     $page['tags'] = array_unique($page['tags']);
 
+    # If only metadata is required, the following code will be skipped for speed
+    if(!$metaonly)
+    {
     //Remove line containing only tags
     $content = preg_replace('/^(?:\s*#\w+\s*?)*$/m', '', $content);
     // Use regular expression to find and modify Markdown links
     $pattern = '/\[(.*?)\]\((.*?)\)/';
     $content = preg_replace_callback($pattern, 'add_base_to_links', $content);
     $content = $parsedown->text($content);
-    
     $page['content']= trim($content, " \n\r\t");
+    }
+    
 
     # Updating slug to ensure index files in sub directory and named files have same slug 
     $slug = str_replace($site['dir'].DS.'content',"", $file);
@@ -106,7 +110,7 @@ function build($request)
 
 
 /*Scan directory and gives the list of paths are supported for parsing */
-function get_all_pages($dir = null)
+function get_all_pages($metaonly=true, $dir = null)
 {   
     global $site;
     if($dir == null)
@@ -121,13 +125,13 @@ function get_all_pages($dir = null)
         {   
             $path = $dir.DS.$entry;
             if (is_file($path)) {
-                $p = parse($path);
+                $p = parse($path, $metaonly);
                 if($p)
                 {            
                     array_push($pages, $p);
                 }
             } elseif (is_dir($path)) {
-                    $pages = array_merge($pages, get_all_pages($path));
+                    $pages = array_merge($pages, get_all_pages($metaonly,$path));
            }
         }
     } 
@@ -135,7 +139,7 @@ function get_all_pages($dir = null)
 }
 
 // Parse a file and build it
-function parse($file) {
+function parse($file, $metaonly=false) {
 
     global $site;
     $ext = pathinfo($file, PATHINFO_EXTENSION);
@@ -148,7 +152,7 @@ function parse($file) {
             }
 
             $r['filepath'] = $file;
-            return build($r);
+            return build($r, $metaonly);
     }
         
 }
