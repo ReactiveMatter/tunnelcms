@@ -10,6 +10,8 @@ Download the `tunnel` folder along with the `.htaccess` file from the [Github di
 
 Tunnel CMS will render your markdown files dynamically, so that you can focus on writing.
 
+Requirements: PHP 8 or higher.
+
 ## 📝 YAML frontmatter
 
 Tunnel CMS parses YAML front matter from the markdown files and serializes them in the `$page` variable. This can be used by the layout to display content.
