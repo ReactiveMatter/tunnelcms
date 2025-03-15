@@ -9,7 +9,7 @@ $site['ext'] = ['md', 'txt'];
 $site['default_layout'] = 'default';
 
 # If cache should be enabled.
-$site['cache'] = true;
+$site['cache'] = false;
 
 # Default format for display of date
 $site['date_format'] = 'd F, Y';
@@ -17,4 +17,4 @@ $site['date_format'] = 'd F, Y';
 # List of enabled plugins.
 # $site['plugins'][] = 'drafts';
 # $site['plugins'][] = 'feed';
-$site['plugins'][] = 'cache_cleanup';
+# $site['plugins'][] = 'cache_cleanup';

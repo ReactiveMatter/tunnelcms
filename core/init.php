@@ -46,8 +46,19 @@ $request['hashes']['slug'] = slug_hash($request['slug']);
 # Load 404 file or 404 header if file doesn't exist
 if(!$request['filepath'])
 {   
-    header("HTTP/1.0 404 Not Found");
-    exit("HTTP/1.0 404 Not Found");
+
+    if(get_file_path_for_slug('404'))
+    {   
+        $request['filepath'] = get_file_path_for_slug('404');
+        $request['hashes']['slug'] = slug_hash('404');
+        http_response_code(404); 
+    }
+    else
+    {
+        header("HTTP/1.0 404 Not Found");
+        exit("HTTP/1.0 404 Not Found");
+    }
+    
 }
     
 
@@ -57,12 +68,15 @@ if(!$request['filepath'])
  $request['filepath'] = preg_replace('#\\\\{2,}#', '\\',  $request['filepath']); // For backslashes
 
 # Check if cache valid
-if(cache_valid($request))
+if(isset($site['cache']) && $site['cache'] && cache_valid($request))
 {
+    #If cache enabled and cache is valid
     serve_cache($request);
 }
-else
+else if(isset($site['cache']) && $site['cache'] && !cache_valid($request))
 {   
+    #If cache enabled and cache is invalid
+
     # Parse file and build $page
     $page = build($request);
     # Output HTML generated using template. It adds $page['html'] and echoes it
@@ -77,6 +91,15 @@ else
 
     # Create cache for page
     create_cache($page);
+}
+else
+{   
+    #If cache not enabled
+    
+    $page = build($request);
+    run_hook('before_render');
+    render($page);
+    run_hook('after_render');
 }
 
 run_hook('end');
