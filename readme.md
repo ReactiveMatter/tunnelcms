@@ -1,5 +1,6 @@
 # Tunnel CMS
-v2.0.0
+
+v2.0.0 (Updated on 15.03.25)
 
 Tunnel CMS is the simplest markdown CMS. It parses markdown files and outputs html in real time whenever necessary. However, not every request requires parsing, as Tunnel CMS builds the HTML files and store in cache. Until, the underlying content of the markdown files is changes, the cached HTML is served.
 
@@ -63,11 +64,30 @@ By default markdown links are relative to http root (`/about`). However, to make
 
 The detailed process and control flow is provided in [workings](workings).
 
-# License
+## Plugins
+
+Starting from version 2.0.0, Tunnel CMS can be extended or improved by plugins.
+
+Plugins are php files in `core/plugins` directory. To enable a plugin, the name of the plugin file must be added to `$site['plugins']` array.
+
+Plugins file are included autmatically at the start of the process, by `plugin_manager.php`. Plugins can hook functions at 4 places:
+
+ - start: It is called before the render process is initiated. The $site and $requests parameters are available.
+ - before_render: It is called before HTML is being rendered but after $page is build.
+ - after_render: It is called after HTML is rendered but before caching.
+ - end: It is called after the render process is complete.
+
+ Example of adding hook:
+
+ ```
+ add_hook('start','remove_old_cache');
+ ```
+
+## License
 
 This project is licensed under the MIT License.
 
-# Credits
+## Credits
 
 Tunnel CMS is developed by ReactiveMatter.
 
