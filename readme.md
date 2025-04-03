@@ -60,15 +60,15 @@ Config variable are stored in `config.php`. They are site wide variables used fo
 
 Custom variable can be defined in config file, which can be used in the template files.
 
-## Links
+## 🔗 Links
 
 By default markdown links are relative to http root (`/about`). However, to make it relative to Tunnel CMS directory use `$/about`. 
 
-## Workings
+## 🛠️ Workings
 
 The detailed process and control flow is provided in [workings](workings).
 
-## Plugins
+## 🔌 Plugins
 
 Starting from version 2, Tunnel CMS can be extended or improved by plugins.
 
@@ -87,13 +87,13 @@ Plugins file are included autmatically at the start of the process, by `plugin_m
  add_hook('start','remove_old_cache');
  ```
 
-## Content
+## 📑 Content
 
 All markdown content is to be put in `content` folder with desired directory structure. The directory structre and file names are used as url.
 
 The content can be managed by FTP, SFTP, SSH or by PHP based filemanagers (like [tinyfilemanager](https://tinyfilemanager.github.io/).)
 
-## License
+## 📜 License
 
 This project is licensed under the MIT License.
 
