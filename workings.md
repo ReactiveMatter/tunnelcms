@@ -1,5 +1,5 @@
 # Workings
-The wokring process of Tunnel CMS is as follows
+The woinrkg process of Tunnel CMS is as follows
 
 - Init.php: It boostraps all required files.
 	- Loads $config.php which initializes $site (site wide config)
